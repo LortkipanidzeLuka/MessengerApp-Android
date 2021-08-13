@@ -41,7 +41,7 @@ class ConversationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         profilePicImageView.setImageBitmap(conversationListItemModel.bitmap)
         displayNameTextView.text = conversationListItemModel.userName
         messageTextView.text = conversationListItemModel.lastMessage
-        timeTextView.text = "now"
+        timeTextView.text = conversationListItemModel.sendTime.toString()
 
     }
 
