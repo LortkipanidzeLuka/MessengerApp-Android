@@ -1,5 +1,6 @@
 package ge.llortkipanidze.messengerapp.pages.home
 
+import android.content.Intent
 import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
@@ -41,7 +42,13 @@ class ConversationViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         profilePicImageView.setImageBitmap(conversationListItemModel.bitmap)
         displayNameTextView.text = conversationListItemModel.userName
         messageTextView.text = conversationListItemModel.lastMessage
-        timeTextView.text = conversationListItemModel.sendTime.toString()
+        timeTextView.text = conversationListItemModel.sendTime
+
+        itemView.setOnClickListener {
+            //transition Code Here!!!
+        }
+
+
 
     }
 
