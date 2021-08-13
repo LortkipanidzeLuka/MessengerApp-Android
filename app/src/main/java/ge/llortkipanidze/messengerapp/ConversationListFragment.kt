@@ -37,10 +37,11 @@ class ConversationListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        Log.d("aaaaa", "aaaaa")
         val view:View = inflater.inflate(R.layout.fragment_conversation_list, container, false)
         recyclerView = view?.findViewById(R.id.conversationsRecyclerView)!!
         recyclerView.adapter = recylerViewAdapter
+        Log.d("b","bb")
         recyclerView.layoutManager = LinearLayoutManager(this.context)
         fetchData()
 
@@ -57,7 +58,11 @@ class ConversationListFragment : Fragment() {
         ref.get().addOnCompleteListener {
             if (it.isSuccessful){
                 val res : DataSnapshot? = it.result
+                Log.d("a", "aaaa")
                 val userMetaData =res!!.getValue(UserMetaData::class.java)
+                Log.d("aa", userMetaData.toString())
+
+
                 renderData(userMetaData!!)
             }
         }
@@ -73,10 +78,10 @@ class ConversationListFragment : Fragment() {
 
 
     private fun renderData(userMetaData: UserMetaData){
-        val conversationMap = userMetaData.conversaitoMapn ?: HashMap<String, Conversation>()
+        val conversationMap = userMetaData.conversaitonMap ?: HashMap<String, Conversation>()
         val conversationsList = mutableListOf<ConversationListItemModel>()
         for((key, value) in conversationMap){
-            val conversation = value.messageMap
+            val conversation = value.messageList
             val lastMessage = conversation?.get(conversation.size - 1)
             val ref = Firebase.storage.reference.child("profilePictures/llort")
             ref.getBytes(Long.MAX_VALUE).addOnSuccessListener {
