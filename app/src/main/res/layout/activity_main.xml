@@ -22,6 +22,8 @@
         android:layout_height="40dp"
         android:hint="@string/login_nickname_et_hint"
         android:textSize="16sp"
+        android:gravity="center"
+        android:background="@drawable/et_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logInProfilePicture"
@@ -34,6 +36,9 @@
         android:layout_height="40dp"
         android:hint="@string/login_password_et_hint"
         android:textSize="16sp"
+        android:gravity="center"
+        android:background="@drawable/et_background"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logInNicknameEt"
@@ -71,7 +76,6 @@
         android:text="@string/not_registered"
         android:textSize="16sp"
         android:layout_marginBottom="20dp"
-
         app:layout_constraintBottom_toTopOf="@+id/loginSignUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -79,8 +83,10 @@
 
     <EditText
         android:layout_width="200dp"
-        android:layout_height="70dp"
+        android:layout_height="40dp"
         android:hint="@string/what_i_do"
+        android:gravity="center"
+        android:background="@drawable/et_background"
         android:id="@+id/whatIdoTextField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
