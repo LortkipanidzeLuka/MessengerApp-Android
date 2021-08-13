@@ -2,4 +2,5 @@ package ge.llortkipanidze.messengerapp.models
 
 import java.util.*
 
-data class Message(val messageText: String, val isSent : Boolean, val sendTime: Date)
+data class Message(val messageText: String? = null, val sender: String? = null, val sendTime: Date? = null)
+

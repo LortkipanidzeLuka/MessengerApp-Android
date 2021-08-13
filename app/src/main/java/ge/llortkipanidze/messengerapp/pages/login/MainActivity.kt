@@ -1,5 +1,6 @@
-package ge.llortkipanidze.messengerapp
+package ge.llortkipanidze.messengerapp.pages.login
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,10 +10,13 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import ge.llortkipanidze.messengerapp.R
 import ge.llortkipanidze.messengerapp.models.Conversation
 import ge.llortkipanidze.messengerapp.models.UserMetaData
+import ge.llortkipanidze.messengerapp.pages.home.HomeActivity
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -70,7 +74,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun registerNewUser() {
-        val email = etNickname.text.toString() + EMAIL_SUFFIX
+        val userName = etNickname.text.toString()
+        val email =  userName + EMAIL_SUFFIX
         val password = etPassword.text.toString();
         val profession = etProfession.text.toString()
         auth.createUserWithEmailAndPassword(email, password)
@@ -79,9 +84,13 @@ class MainActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     //Log.d(TAG, "createUserWithEmail:success")
 
-                    val user = auth.currentUser
+                    var user = auth.currentUser
                     val database = Firebase.database
                     val newUserReference = database.getReference("UserDataList")
+                    val profileUpdates = userProfileChangeRequest {
+                        displayName = userName
+                    }
+                    user!!.updateProfile(profileUpdates)
                     newUserReference.child(user!!.uid).setValue(UserMetaData(profession, HashMap<String, Conversation>()))
                     forwardToHomePage()
                 } else {
@@ -97,7 +106,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun forwardToHomePage() {
-        return
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 
 
