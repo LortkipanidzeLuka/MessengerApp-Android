@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/tesliLortkipa/AndroidStudioProjects/MessengerApp/app/src/main/res/drawable/et_backgound.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/tesliLortkipa/AndroidStudioProjects/MessengerApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/tesliLortkipa/AndroidStudioProjects/MessengerApp/app/src/main/res/layout/activity_home.xml" value="0.15670289855072464" />
         <entry key="..\:/Users/tesliLortkipa/AndroidStudioProjects/MessengerApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/tesliLortkipa/AndroidStudioProjects/MessengerApp/app/src/main/res/layout/conversation_list_item.xml" value="0.1766304347826087" />
